@@ -8,7 +8,7 @@ class OnepifToCsv < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"1pif-to-csv"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "-o", bin/"1pif-to-csv"
   end
 
   test do
